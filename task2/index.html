@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+<body>
+        <!-- 1. Дан код:
+        var a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2
+        d = b++; alert(d);           // 1
+        c = (2+ ++a); alert(c);      // 5
+        d = (2+ b++); alert(d);      // 4
+        alert(a);                    // 3
+        alert(b);                    // 3
+Почему код даёт именно такие результаты?
+Потому что инкремент а дает + 1 и присвоить в с, затем сначала присвоить b. потом его 
+инкрементировать. Следующая линия, так как сначала инкремент а, а там уже 2, то будет 3 и +2, дает 5
+Следующая, сначала добавить 2 к b (где у нас был инкремент во второй линии где уже 2) будет 4 и потом только инкремент к b
+        2. Чему будет равен x в примере ниже?
+        var a = 2;
+        var x = 1 + (a *= 2);
+a = 2, 2 * 2 и верунть в а, будет 4 + 1 = 5
+        5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+        6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+        7. *Сравнить null и 0. Попробуйте объяснить результат. -->
+    <script>
+        // 3
+        let a = 4;
+        let b = 6;
+        
+        function compare_(a,b) {
+            if (a > 0 && b > 0){
+                console.log(a - b);
+                return;}
+            if (a < 0 && b < 0){
+                console.log(a * b);
+                return;}
+            if (a > 0 && b < 0 || b > 0 && a < 0){
+                console.log(a + b);
+                return;       }
+            else {
+                console.log("0");
+                return;
+            }
+        }
+
+        compare_(a,b);
+        // 4
+        let aa = 8;
+        switch ((aa >= 0) && (aa <= 15)) {
+            case true:
+                for (let index = aa; index <= 15; index++) {
+                    console.log (index);
+                }
+                break;
+            default:
+                console.log("Please enter number between 0 and 15");
+        }
+
+        // 5
+        function add(a,b) {
+            return a + b;
+        }
+        function mul(a,b) {
+            return a * b;
+        }
+        function sub(a,b) {
+            return a - b;
+        }
+        function div(a,b) {
+            if (b === 0) {
+                console.log("Error, you can't divide by zero");
+                return false;
+            }
+            return a / b;
+        }
+        // 6
+        function mathOperation(a,b,operator) {
+            let result;
+            switch (operator) {
+                case '+':
+                    result = add(a,b);
+                    break;
+                case '-':
+                    result = sub(a,b);
+                    break;
+                case '*':
+                    result = mul(a,b);
+                    break;
+                case '/':
+                    result = div(a,b);
+                    break;
+            
+                default:
+                    result = null;
+                    break;
+            }
+            return result;
+        }
+        console.log (mathOperation(5,6,'*'));
+
+        // 7: 0 есть числовое значение, которое имеет определенный тип данных. null имеет типа object
+        console.log(typeof(null));
+        // 8
+        function power(val, pow) {
+        if (pow === 1) return val;
+        return power(val, pow - 1) * val;
+
+        }
+
+    console.log(power(2,10))
+	</script>
+	
+</body>
+</html>
+
+
