@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task 2</title>
+</head>
+<body>
+    <script>
+    // 1
+        function is_prime(n) {
+            if ((n <= 3) && (n != 0)) { 
+                return true; 
+            } 
+            if (n % 2 === 0) {
+                return false;
+            }
+            let d = 3;
+            while (d * d <= n && n % d != 0) {
+                d += 2;
+            }
+            if (d * d > n) {
+                return true;
+            }
+        }
+
+        CONST = 100;
+        for (let index = 1; index <= CONST; index++) {
+            if (is_prime(index) === true) {
+                console.log(index);
+            }  
+        }
+    // 2
+        var cart = ["мяч","ракетка","сетка"];
+        function countBasketPrice(array) {
+            let full_cost = 0;
+            for (let index = 0; index < array.length; index++) {
+                switch (array[index]) {
+                    case "мяч":
+                        full_cost = full_cost + 10;
+                        break;
+                    case "ракетка":
+                        full_cost = full_cost + 20;
+                        break;
+                    case "сетка":
+                        full_cost = full_cost + 30;
+                        break;
+                    default:
+                        console.log("Item not found, proceed with next one");
+                        break;
+                }
+            }
+            return full_cost;
+        }
+        console.log("Amount of cart costs: " + String(countBasketPrice(cart)));
+    // 3
+        for (let index = 0; index < 9; index++, console.log(index)) {}
+    // 4
+        LINES = 20;
+        for (let index = 0; index < LINES; index++) {
+            let str_x = '';
+            for (let index_line = 0; index_line < index; index_line++) {
+                str_x += 'x';
+            }
+            console.log(str_x);
+        }
+	</script>
+</body>
+</html>
+
+
