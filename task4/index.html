@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task 4</title>
+</head>
+<body>
+    <script>
+    // 1
+        const MAX = 1000;
+        const test = 999;
+        const array_decade = ['units','decades','hundreds'];
+        const str_digit = String(test);
+        let str_number = new Object();
+        if (test < MAX ) {
+            for (let index = 0; index < str_digit.length; index++) {
+                str_number[array_decade[index]] = str_digit[str_digit.length - index - 1]; 
+            }
+            console.log(str_number);
+        }
+        else {
+            console.log('Please try any number less then 1000');
+            console.log(str_number);
+        }
+
+    // 2.1 Мы можем занменить их нижестоящим объектом
+    // 2.2 and 2.3
+    function total_cost (array){
+        let total_result = 0
+        for (let index = 0; index < array.length; index++) {
+            total_result += array[index]['cost'] * array[index]['amount'];
+        }
+        return total_result;
+    }
+
+    let shoppingItems1 = [
+        {name: "ball", cost: 40, amount: 2},
+        {name: "net", cost: 80, amount: 1},
+        {name: "rocket", cost: 100, amount: 2}
+    ];
+
+    let shoppingCart1 = {
+        buyerID: 1,
+        shoppingItems: shoppingItems1,
+        total_cost: total_cost(shoppingItems1),
+    };
+
+    console.log("Full cost of cart is: " + shoppingCart1.total_cost);
+	</script>
+</body>
+</html>
+
+
