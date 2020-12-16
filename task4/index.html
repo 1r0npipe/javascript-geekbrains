@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task 4</title>
+</head>
+<body>
+    <script>
+    // 1
+        const test = 555;
+        function digToObj(digit) {
+            const MAX = 1000;
+            const array_decade = ['units','decades','hundreds'];
+            const str_digit = String(test);
+            let str_number = new Object();
+            if (test < MAX ) {
+                for (let index = 0; index < str_digit.length; index++) {
+                    str_number[array_decade[index]] = str_digit[str_digit.length - index - 1]; 
+                }
+            }
+            else {
+                console.log('Please try any number less then 1000');
+                return false;
+            }
+            return str_number;
+        };
+        console.log(digToObj(test));
+    // 2.1 Мы можем занменить их нижестоящим объектом
+    // 2.2 and 2.3
+
+
+    var shoppingCart1 = {
+        buyerID: 1,
+        shoppingItems: [
+            {name: "ball", cost: 40, amount: 2},
+            {name: "net", cost: 80, amount: 1},
+            {name: "rocket", cost: 100, amount: 2}
+        ],
+        total_cost(array)
+        {
+            let total_result = 0
+            for (let index = 0; index < array.length; index++) {
+                total_result += array[index]['cost'] * array[index]['amount'];
+            }
+        return total_result;
+        },
+
+    };
+
+    console.log("Full cost of cart is: " + shoppingCart1.total_cost(shoppingCart1.shoppingItems));
+	</script>
+</body>
+</html>
+
+
