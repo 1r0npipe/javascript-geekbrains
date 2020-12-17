@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Draw Chess Board</title>
+    <script>
+        function drawChessboard() {
+            const sAmount = 8;
+            const sSize = 50;
+            const boardTopx = 10;
+            const boardTopy = 10;
+            let canvas = document.getElementById("canvasboard");
+            context = canvas.getContext("2d");
+            for(let i=0; i<sAmount; i++) {
+                for(let j=0; j<sAmount; j++) {
+                context.fillStyle = ((i+j)%2==0) ? "white":"black";
+                let xOffset = boardTopx + j*sSize;
+                let yOffset = boardTopy + i*sSize;
+                context.fillRect(xOffset, yOffset, sSize, sSize);
+                }
+            }
+            // draw the border around the chessboard
+            context.strokeStyle = "black";
+            context.strokeRect(boardTopx, boardTopy, sSize*sAmount, sSize*sAmount)
+        }
+    </script>
+  </head>
+  <body onload="drawChessboard()">
+    <canvas id="canvasboard" width="800px" height="500px"></canvas>
+  </body>
+</html>
