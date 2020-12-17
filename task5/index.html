@@ -27,10 +27,8 @@
             }
             context.strokeStyle = "black";
             context.strokeRect(boardTopx, boardTopy, sSize*sAmount, sSize*sAmount)
-            
             for (let i = 0; i < letters.length; i++) {
-                context.fillText(letters[i],boardTopx + i*sSize + 10, 450);
-                
+                context.fillText(letters[i],boardTopx + i*sSize + 10, boardTopy + sSize *  sAmount + 30 );
             }
         }
     </script>
