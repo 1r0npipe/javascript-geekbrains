@@ -1,9 +1,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Draw Chess Board</title>
+    <title>Chess Board</title>
     <script>
-        function drawChessboard() {
+        function renderChessboard() {
             const sAmount = 8;
             const sSize = 50;
             const boardTopx = 10;
@@ -31,9 +31,10 @@
                 context.fillText(letters[i],boardTopx + i*sSize + 10, boardTopy + sSize *  sAmount + 30 );
             }
         }
+    // 2* skipped, as an additional task
     </script>
   </head>
-  <body onload="drawChessboard()">
+  <body onload="renderChessboard()">
     <canvas id="canvasboard" width="800px" height="500px"></canvas>
   </body>
 </html>
