@@ -13,9 +13,9 @@
         var shoppingCart1 = {
             buyerID: 1,
             shoppingItems: [
-                {name: "ball", cost: 40, amount: 2},
-                {name: "net", cost: 80, amount: 1},
-                {name: "rocket", cost: 100, amount: 2}
+                {name: "Телефон", cost: 1000, amount: 2},
+                {name: "Компьютер", cost: 23000, amount: 1},
+                {name: "Монитор", cost: 15000, amount: 2}
             ],
             total_cost(array)
             {
@@ -26,9 +26,17 @@
             return total_result;
             },
         };
-        var Product = ["Телефон","Компьютер","Планшет","Телевизор","Камера"];
-        var prods = Product.toString();
-        document.getElementById('catalog').innerHTML += prods;    
+        var Product = [
+                {name: "Телефон", cost: 1000, amount: 2},
+                {name: "Компьютер", cost: 23000, amount: 1},
+                {name: "Монитор", cost: 15000, amount: 2}
+        ];
+
+        for (let index = 0; index < Product.length; index++) {
+            document.getElementById('catalog').innerHTML += Product[index].name + 
+            ' стоимость - ' + Product[index].cost + ' рублей(-я)' + 
+            ' количество: ' + Product[index].amount +"<br>";
+        }  
         if (shoppingCart1.shoppingItems.length ===0 ) {
             document.getElementById('cart').innerHTML += "Корзина пуста";
         }
