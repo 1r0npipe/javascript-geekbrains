@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cart Board</title>
+
+  </head>
+  <body onload="onLoadStr();">
+    <div id="cart" style="font-size: large; font-family: 'Lucida Sans', sans-serif;">Корзина: <br></div> <br>
+    <div id="catalog" style="font-size: large; font-family: 'Lucida Sans', sans-serif;"> В каталоге сейчас доступно: <br></div>
+    <script>
+    // 3
+    function  onLoadStr() {
+        var shoppingCart1 = {
+            buyerID: 1,
+            shoppingItems: [
+                {name: "Телефон", cost: 1000, amount: 2},
+                {name: "Компьютер", cost: 23000, amount: 1},
+                {name: "Монитор", cost: 15000, amount: 2}
+            ],
+            total_cost(array)
+            {
+                let total_result = 0
+                for (let index = 0; index < array.length; index++) {
+                    total_result += array[index]['cost'] * array[index]['amount'];
+                }
+            return total_result;
+            },
+        };
+        var Product = [
+                {name: "Телефон", cost: 1000, amount: 2},
+                {name: "Компьютер", cost: 23000, amount: 1},
+                {name: "Монитор", cost: 15000, amount: 2}
+        ];
+
+        for (let index = 0; index < Product.length; index++) {
+            document.getElementById('catalog').innerHTML += Product[index].name + 
+            ' стоимость - ' + Product[index].cost + ' рублей(-я)' + 
+            ' количество: ' + Product[index].amount +"<br>";
+        }  
+        if (shoppingCart1.shoppingItems.length ===0 ) {
+            document.getElementById('cart').innerHTML += "Корзина пуста";
+        }
+        else {
+
+            document.getElementById('cart').innerHTML += "в корзине: " + 
+                shoppingCart1.shoppingItems.length.toString() + 
+                " товаров(-а), на сумму: " +
+                shoppingCart1.total_cost(shoppingCart1.shoppingItems) + " рублей(-я)";
+        }
+
+    }
+    </script>
+  </body>
+</html>

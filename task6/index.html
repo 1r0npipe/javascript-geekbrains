@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cart Board</title>
+
+  </head>
+  <body onload="onLoadStr();">
+    <div id="cart" style="font-size: large; font-family: 'Lucida Sans', sans-serif;">Корзина: пуста <br></div> <br>
+    <div id="catalog" style="font-size: large; font-family: 'Lucida Sans', sans-serif;"> В каталоге сейчас доступно: <br></div>
+    <button type="button" onclick="clearCart()">Отчистить корзину</button>
+    <script>
+    // 3
+    var index = 0;
+    var Product = [
+                {name: "Телефон", cost: 1000, amount: 2},
+                {name: "Компьютер", cost: 23000, amount: 1},
+                {name: "Монитор", cost: 15000, amount: 2}
+        ];
+
+    var shoppingCart1 = {
+            buyerID: 1,
+            shoppingItems: [],
+            total_cost(array)
+            {
+                let total_result = 0
+                for (let index = 0; index < array.length; index++) {
+                    total_result += array[index]['cost'] * array[index]['amount'];
+                }
+                return total_result;
+            },
+            add(product)
+            {
+                this.shoppingItems.push(product);
+            }
+        };
+        
+    function  onLoadStr() {;
+        for (index = 0; index < Product.length; index++) {
+            document.getElementById('catalog').innerHTML += '<button type="button" onclick="buy(' 
+                + index + 
+                ')">Купить</button>&nbsp;&nbsp;';
+            document.getElementById('catalog').innerHTML += Product[index].name + 
+            ' стоимость - ' + Product[index].cost + ' рублей(-я)' + 
+            ' количество: ' + Product[index].amount +"<br>";
+        }
+    }
+
+    function renderCart() { 
+        document.getElementById('cart').innerHTML = ""; 
+        if (shoppingCart1.shoppingItems.length == 0 ) {
+            document.getElementById('cart').innerHTML += "Корзина: пуста";
+        }
+        else {
+
+            document.getElementById('cart').innerHTML += "в корзине: <br>" + 
+                shoppingCart1.shoppingItems.length.toString() + 
+                " товаров(-а), на сумму: " +
+                shoppingCart1.total_cost(shoppingCart1.shoppingItems) + " рублей(-я)";
+        }
+    }
+
+    function buy(index) {
+        Product[index].amount = 1;
+        shoppingCart1.shoppingItems.push(Product[index]);
+        
+        renderCart();
+    }
+
+    function clearCart() {
+        shoppingCart1.shoppingItems = [];
+        renderCart();
+    }
+
+    </script>
+  </body>
+</html>
